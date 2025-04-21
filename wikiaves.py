@@ -3,11 +3,10 @@
 from bs4 import BeautifulSoup
 import requests
 from lxml import etree
-from datetime import datetime
 import pandas as pd
 
 id_min = 1
-id_max = 20#86803661
+id_max = 6804287 #21/04/2025 20:22
 
 
 headers = {

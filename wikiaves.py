@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 from lxml import etree
 import pandas as pd
+from tqdm import tqdm
 
 id_min = 1
 id_max = 6804287 #21/04/2025 20:22

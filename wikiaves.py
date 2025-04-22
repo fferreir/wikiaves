@@ -20,7 +20,7 @@ nome_cientifico = []
 municipio = []
 cod_municipio = []
 data_registro = []
-for i in range(id_min, id_max):
+for i in tqdm(range(id_min, id_max)):
     url = f"https://www.wikiaves.com.br/{i}"
     res = requests.get(url, headers=headers)
     soup = BeautifulSoup(res.content, "html.parser")

@@ -2,12 +2,11 @@
 
 from bs4 import BeautifulSoup
 import requests
-from lxml import etree
 import pandas as pd
 from tqdm import tqdm
 
 id_min = 1
-id_max = 6804287 #21/04/2025 20:22
+id_max =  10#6804287 #21/04/2025 20:22
 
 
 headers = {
@@ -25,8 +24,9 @@ for i in tqdm(range(id_min, id_max)):
     url = f"https://www.wikiaves.com.br/{i}"
     res = requests.get(url, headers=headers)
     soup = BeautifulSoup(res.content, "html.parser")
-    dom = etree.HTML(str(soup))
-    if dom.xpath('/html/body/div/div[1]/div/div[1]/div[2]/text()'):
+
+    divs = [div for div in soup.find_all("div") if "Mídia não encontrada" in div.get_text().strip()]
+    if divs:
         pass
     else:
         id.append(i)
